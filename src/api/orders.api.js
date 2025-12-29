@@ -5,7 +5,7 @@ export async function placeOrder(order) {
   if (error) throw error;
 }
 
-export async function getOrders() {
+/*export async function getOrders() {
   const { data, error } = await supabase
     .from('orders')
     .select('*')
@@ -13,5 +13,5 @@ export async function getOrders() {
 
   if (error) throw error;
   return data;
-}
+}*/
 
