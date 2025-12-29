@@ -7,7 +7,6 @@ export default function App() {
     phone: '',
     address: ''
   });
-
   const [loading, setLoading] = useState(false);
 
   async function handleOrder() {
@@ -32,7 +31,8 @@ export default function App() {
       alert('Order placed successfully!');
       setForm({ customer_name: '', phone: '', address: '' });
     } catch (err) {
-      alert('Order failed. Try again.');
+      console.error(err);
+      alert(err.message || 'Order failed');
     } finally {
       setLoading(false);
     }
