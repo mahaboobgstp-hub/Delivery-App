@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getMenu } from '../api/menu.api';
+import MenuCard from '../components/MenuCard';
 
 export default function Home() {
   const [menu, setMenu] = useState([]);
@@ -10,13 +11,13 @@ export default function Home() {
 
   return (
     <div>
-      <h2>Pani Puri Family Pack</h2>
+      <h2>Menu</h2>
+
+      {menu.length === 0 && <p>Loading menu...</p>}
+
       {menu.map(item => (
-        <div key={item.id}>
-          <p>{item.name} - ₹{item.price}</p>
-        </div>
+        <MenuCard key={item.id} item={item} />
       ))}
     </div>
   );
 }
-
