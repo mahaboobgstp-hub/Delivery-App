@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles/main.css';
+
+function SafeApp() {
+  try {
+    return <App />;
+  } catch (e) {
+    return (
+      <div style={{ padding: 20, color: 'red' }}>
+        <h2>App crashed on load</h2>
+        <pre>{String(e)}</pre>
+      </div>
+    );
+  }
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <SafeApp />
   </React.StrictMode>
 );
